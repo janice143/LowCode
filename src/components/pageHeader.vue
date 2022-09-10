@@ -41,27 +41,31 @@
 
     
     <el-row>
-      <el-button size="small" @click="toSchema">schema 生成器</el-button>
+      <el-button size="small" @click="toSchema" icon="el-icon-github">SCHEMA 生成器</el-button>
     </el-row>
 
-    <div v-if = "loginStatus"  class="userInfo" @click="drawer = true"> 
+    <el-row>
+      <el-button size="small" @click="toGithub">Github仓库</el-button>
+    </el-row>
+
+    <!-- <div v-if = "loginStatus"  class="userInfo" @click="drawer = true"> 
        <el-avatar :size="50" :src="userInfo.avatar_url" />
        <span style="margin-left: 10px; font-size: 15px">{{userInfo.login}}</span>
     </div>
     <div v-else class ="login" @click="login">
       <i class="el-icon-user-solid"></i>
       <span class="login-item">GitHub授权</span>
-    </div>
+    </div> -->
     <!-- 预览 -->
     <Preview v-if="isShowPreview" @change="handlePreviewChange" />
    
     <!-- drawer -->
-    <el-drawer
+    <!-- <el-drawer
       title="我是标题"
       :visible.sync="drawer"
       :with-header="false">
       <el-button @click="logout">退出登录</el-button>
-    </el-drawer>
+    </el-drawer> -->
 
   </div>
 </template>
@@ -130,6 +134,10 @@ export default {
         path: "/schema",
       });
       window.open(href);
+    },
+    toGithub(){
+      let location = 'https://github.com/giraffecat/LowCode'
+      window.open(location);
     },
     toPreview() {
       this.isShowPreview = true;

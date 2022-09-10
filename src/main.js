@@ -50,7 +50,8 @@ Vue.component("draggable", draggable);
 import Imgpond from 'imgpond'
 Vue.use(Imgpond, {
   request,
-  url: process.env.VUE_APP_UPLOAD_API + 'upload',
+  url: 'http://110.42.184.128:3000/upload',
+  // url: process.env.VUE_APP_UPLOAD_API + 'upload',
   param: {
     domainId: 3,
     dir: 'img'
